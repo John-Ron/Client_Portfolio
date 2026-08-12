@@ -11,16 +11,39 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
 
+  <!-- THREE.JS (3D BACKGROUND) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- FONT AWESOME ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  
+
+  <!-- 3D ACCOUNTING BACKGROUND -->
+  <canvas id="bg3d"></canvas>
+
+  <!-- FALLING SAKURA -->
+  <div class="sakura-container">
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+    <span class="sakura"></span>
+  </div>
 
   <!-- LOADER -->
   <div id="loader">
     <div class="loader-circle"></div>
+    <span class="loader-text">Joyce Nazareno</span>
   </div>
 
   <!-- SCROLL PROGRESS -->
@@ -30,29 +53,7 @@
   <header class="header">
 
     <div class="container nav">
-<body>
 
-<!-- FALLING SAKURA -->
-<div class="sakura-container">
-
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-  <span class="sakura"></span>
-
-</div>
-
-<!-- LOADER -->
-<div id="loader">
-      
-      
       <!-- NAVIGATION -->
       <nav>
         <ul class="nav-links">
@@ -66,12 +67,18 @@
         </ul>
       </nav>
 
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
 
   </header>
 
   <!-- PAGE 1 -->
-  <section class="hero hidden" id="general">
+  <section class="hero" id="general">
 
     <div class="container hero-content">
 
@@ -128,13 +135,9 @@
             Detailed-oriented and reliable professional with over 8 years of experience supporting US-based CPA firms and clients in various industries including construction, manufacturing and retail, medical, and professional services.
           </p>
 
-          <br>
-
           <p>
             I help business owners save time, stay organized, make informed decisions by providing accurate, timely and stress-free bookkeeping services.
           </p>
-
-          <br>
 
           <p>
             When you work with me, you can expect clear communication, strong work ethic and a commitment to your success.
@@ -161,37 +164,37 @@
       <div class="services-grid">
 
         <div class="service-card">
-          <div class="icon">📘</div>
+          <div class="icon"><i class="fa-solid fa-book-open"></i></div>
           <h3>Full-Cycle Bookkeeping</h3>
           <p>End-to-end bookkeeping to keep your records accurate and up-to-date.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">💳</div>
+          <div class="icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
           <h3>Accounts Payable & Receivable</h3>
           <p>Timely processing, vendor management and invoicing.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">🏦</div>
+          <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
           <h3>Bank & Credit Card Reconciliation</h3>
           <p>Daily, weekly, and monthly reconciliations for accurate records.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">📊</div>
+          <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
           <h3>Financial Reporting</h3>
           <p>Monthly financial statements and reports you can rely on.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">📄</div>
+          <div class="icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
           <h3>1099 Preparation & Filing</h3>
           <p>Accurate 1099 preparation and filing in compliance with IRIS requirements.</p>
         </div>
 
         <div class="service-card">
-          <div class="icon">📊</div>
+          <div class="icon"><i class="fa-solid fa-chart-pie"></i></div>
           <h3>AD HOC REPORTS & ANALYSIS</h3>
           <p>Custom Reports and insights to support your business growth.</p>
         </div>
@@ -336,7 +339,7 @@
          <ul class="trust-list">
 
   <li>
-    <span class="trust-icon">🎯</span>
+    <span class="trust-icon"><i class="fa-solid fa-bullseye"></i></span>
     <div>
       <h4>Detail-oriented & Accurate</h4>
       <p>
@@ -346,7 +349,7 @@
   </li>
 
   <li>
-    <span class="trust-icon">⏰</span>
+    <span class="trust-icon"><i class="fa-solid fa-stopwatch"></i></span>
     <div>
       <h4>Reliable & Deadline-driven</h4>
       <p>
@@ -356,7 +359,7 @@
   </li>
 
   <li>
-    <span class="trust-icon">💬</span>
+    <span class="trust-icon"><i class="fa-solid fa-comments"></i></span>
     <div>
       <h4>Clear Communication</h4>
       <p>
@@ -366,7 +369,7 @@
   </li>
 
   <li>
-    <span class="trust-icon">🔒</span>
+    <span class="trust-icon"><i class="fa-solid fa-shield-halved"></i></span>
     <div>
       <h4>Confidential & Professional</h4>
       <p>
@@ -376,7 +379,7 @@
   </li>
 
   <li>
-    <span class="trust-icon">📈</span>
+    <span class="trust-icon"><i class="fa-solid fa-arrow-trend-up"></i></span>
     <div>
       <h4>Solutions-focused</h4>
       <p>
@@ -393,6 +396,7 @@
     </div>
 
   </section>
+  
 
   <!-- PAGE 7 -->
   <section class="contact section hidden" id="contact">
@@ -410,16 +414,12 @@
 
   <div class="contact-item">
     <span class="contact-icon">📧</span>
-    
-      joycevianneyabando@gmail.com
-    </a>
+    <a href="mailto:joyceabando@gmail.com">joyceabando@gmail.com</a>
   </div>
 
   <div class="contact-item">
     <span class="contact-icon">📱</span>
- 
-      +63 9052303285
-    </a>
+    <a href="tel:+639123456789">+63 912 345 6789</a>
   </div>
 
 </div>
@@ -437,6 +437,8 @@
 
   <!-- JS -->
   <script src="script.js"></script>
+
+  
 
 </body>
 </html>
